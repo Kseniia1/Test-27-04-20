@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int nom[] = { 10, 8, 2, 1 };
+int main()
+{
+ int n, x, k;
+ cin >> n ;
+ k=0;
+ for(int i = 0; i < 4; ++i)
+ {
+    x = nom[i];
+    k += n / x;
+    n %= x;
+ }
+if(n > 0) k = -1;
+cout << k << endl;
+system("pause");
+return 0;
+}
