@@ -1,0 +1,71 @@
+#define threshold 3
+
+class setOfStacks{
+std::vector<std::stack<int> > *stacks;
+public:
+setOfStacks(){
+    stacks = new std::vector<std::stack<int> >();
+};
+
+~setOfStacks(){};
+
+void push(int d){
+    if(stacks->size()==0){
+        std::stack<int> newStack;
+        newStack.push(d);
+        stacks->push_back(newStack);
+    }
+    else{
+        std::stack<int> s = stacks->back();
+        std::cout<<s.size()<<"\n";
+        if(s.size()!=threshold){
+            s.push(d);
+        }
+        else{
+            std::stack<int> newStack;
+            newStack.push(d);
+            stacks->push_back(newStack);
+        }
+        std::cout<<s.size()<<"\n";
+    }
+
+}
+
+void pop(){
+    if(stacks->size()==0){
+        std::cout<<"No elements in the stack\n";
+    }
+    else{
+        std::stack<int> s;
+        s = stacks->back();
+        if(!s.empty()){
+            std::cout<<s.top()<<" is being removed\n";
+            s.pop();
+        }
+        else{
+            stacks->pop_back();
+            pop();
+        }
+    }
+}
+
+};
+
+int main(){
+setOfStacks stackSet;
+stackSet.push(1);
+stackSet.push(2);
+stackSet.push(3);
+stackSet.push(4);
+stackSet.push(5);
+stackSet.push(6);
+stackSet.push(7);
+stackSet.push(8);
+stackSet.push(9);
+stackSet.pop();
+stackSet.pop();
+stackSet.pop();
+stackSet.pop();
+return 0;
+}
+The problem I am facing- 1 gets inserted int
