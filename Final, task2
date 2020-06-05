@@ -12,7 +12,7 @@ int str(const char* text, const char* pattern)
         ++psize;
     
     if (psize <= tsize) {
-        int cur{}; //counter - ñîäåðæèò êîë-âî ñîâïàä¸ííûõ ñèìâîëîâ ñ ïîçèöèè èíäåêñà cur
+        int cur{}; 
         for (size_t i = 0; i < tsize; ++i) {
             if (text[i] != pattern[i - cur])
                 cur = i + 1;
